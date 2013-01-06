@@ -166,5 +166,6 @@ pip-log.txt
 etecsa.sqlite
 
 # CodeIgniter
-application/cache/
-application/logs/
+/application/cache/*
+/application/logs/*
+contrib/
