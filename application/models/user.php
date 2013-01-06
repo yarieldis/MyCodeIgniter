@@ -6,10 +6,9 @@
  * Transforms users table into an object.
  * This is just here for use with the example in the Controllers.
  *
- * @license		MIT License
  * @category	Models
- * @author		Phil DeJarnett
- * @link		http://www.overzealous.com/dmz/
+ * @author		Yarieldis Claro Soto
+ * @link		http://www.yarieldis.com
  */
 class User extends DataMapper {
 
@@ -19,29 +18,12 @@ class User extends DataMapper {
 	
 	public $has_one = array('group');
 	
-	public $has_many = array(
-		// bugs created by this user
-		'created_bug' => array(
-			'class' => 'bug',
-			'other_field' => 'creator'
-		),
-		// bugs edited by this user
-		'edited_bug' => array(
-			'class' => 'bug',
-			'other_field' => 'editor'
-		),
-		// bugs assigned to this user
-		'bug'
-	);
 	
 	// --------------------------------------------------------------------
 	// Validation
 	// --------------------------------------------------------------------
 
 	public $validation = array(
-		'name' => array(
-			'rules' => array('required', 'trim', 'unique', 'max_length' => 100)
-		),
 		'email' => array(
 			'rules' => array('required', 'trim', 'unique', 'valid_email')
 		),
@@ -62,26 +44,13 @@ class User extends DataMapper {
 	);
 	
 	// Default to ordering by name
-	public $default_order_by = array('name');
+	public $default_order_by = array('username');
 	
 	// --------------------------------------------------------------------
 	
 	function __toString()
 	{
-		return empty($this->name) ? $this->localize_label('newuser') : $this->name;
-	}
-	
-	// --------------------------------------------------------------------
-	
-	/**
-	 * Returns an array list of all users that can have bugs assigned
-	 * to them.
-	 * 
-	 * @return $this for chaining
-	 */
-	function get_assignable()
-	{
-		return $this->where_in_related_group('id', array(1, 2))->get();
+		return empty($this->username) ? $this->localize_label('newuser') : $this->username;
 	}
 	
 	// --------------------------------------------------------------------
