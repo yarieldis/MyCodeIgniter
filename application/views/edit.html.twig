@@ -1,0 +1,22 @@
+{% form_theme edit_form 'SearchfuseGenerationBundle:Form:widgets.html.twig' %}
+
+{% extends 'AfterSchoolMainBundle::layout.html.twig' %}
+
+{% block title %}
+	AfterSchool | Edit Program
+{% endblock %}
+
+{% block content %}
+<h2 class="page-header">{{ 'Edit'|trans }} {{ 'Your'|trans }} {{ 'Program'|trans }}</h2>
+
+<form class="form-horizontal" action="{{ path('manage_profile_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+	<fieldset>
+    {{ form_widget(edit_form) }}
+    </fieldset>
+    <fieldset>
+		<div class="form-actions">
+		  	<button class="btn btn-info btn-large" type="submit">{{ 'Save'|trans }}</button>
+		</div>
+	</fieldset>
+</form>
+{% endblock %}
