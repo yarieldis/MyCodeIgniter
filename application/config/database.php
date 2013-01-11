@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'test';
-$db['default']['password'] = 'test';
-$db['default']['database'] = 'datamapper';
+$db['default']['username'] = 'codeigniter';
+$db['default']['password'] = 'codeigniter';
+$db['default']['database'] = 'codeigniter';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
